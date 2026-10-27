@@ -1,0 +1,143 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #eef3f1;
+  background: #1d3b4f;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.site-header { padding: 20px 0; background: #14293a; }
+.brand { margin: 0 0 8px; font-size: 24px; font-style: italic; font-weight: bold; }
+nav { display: flex; flex-wrap: wrap; gap: 16px; }
+a { color: #f2c14e; }
+a:focus-visible { outline: 3px solid #f2c14e; outline-offset: 4px; }
+
+.intro { padding: 56px 0 40px; }
+h1 { font-size: 52px; line-height: 1.1; margin: 0 0 16px; max-width: 14em; }
+h2 { font-size: 28px; margin: 40px 0 24px; }
+h3 { font-size: 22px; margin: 0 0 12px; line-height: 1.2; }
+.intro p { max-width: 36em; margin: 0 0 24px; }
+
+.button {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #f2c14e;
+  color: #14212b;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.button:hover { background: #ffd97a; }
+
+/* Полка: карточки — корешки книг */
+.cards {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  padding: 0 16px;
+  border-bottom: 16px solid #b9824a;
+  box-shadow: 0 10px 0 #0f1f2c;
+}
+
+.card {
+  flex: 1;
+  min-width: 0;
+  padding: 28px 20px;
+  border: 2px solid rgba(20, 33, 43, 0.35);
+  border-radius: 6px 6px 0 0;
+  color: #14212b;
+  background: #f2c14e;
+  box-shadow: inset 8px 0 0 rgba(20, 33, 43, 0.18);
+  overflow-wrap: anywhere;
+}
+.card p { margin: 0; }
+.card:nth-child(1) { min-height: 300px; background: #f2c14e; }
+.card:nth-child(2) { min-height: 250px; background: #e9725f; }
+.card:nth-child(3) { min-height: 280px; background: #8fd0c2; }
+.card:nth-child(4) { min-height: 230px; background: #c7b3ef; }
+.card-featured { border-color: #ffffff; }
+
+.schedule ul { margin: 0; padding: 0; list-style: none; }
+.schedule li { padding: 12px 0; border-bottom: 1px dashed #5f7f92; }
+.contacts { padding: 8px 0 24px; }
+footer { padding: 16px 0 24px; border-top: 1px solid #5f7f92; }
+
+@media (max-width: 700px) {
+  .cards { flex-direction: column; align-items: stretch; gap: 4px; padding: 0 12px; }
+  .card:nth-child(n) { min-height: 0; padding: 18px 20px; }
+  .card:nth-child(1) { margin-left: 0; }
+  .card:nth-child(2) { margin-left: 14px; }
+  .card:nth-child(3) { margin-left: 4px; }
+  .card:nth-child(4) { margin-left: 20px; }
+  h1 { font-size: 32px; }
+}
+
+@media print {
+  nav { display: none; }
+  body { color: #000000; background: #ffffff; }
+  .site-header { background: #ffffff; }
+  a { color: #000000; }
+}
+
+/* Элементы второго дня: читательский формуляр */
+.join {
+  margin: 24px 0;
+  padding: 24px 20px;
+  color: #14212b;
+  background: #dcebe6;
+  border-radius: 6px;
+  border-left: 12px solid #e9725f;
+}
+.join h2 { margin-top: 0; }
+.join label { display: block; margin-bottom: 8px; font-weight: bold; }
+.join input {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #14212b;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #14212b;
+  font: inherit;
+}
+button { font: inherit; border: 0; cursor: pointer; }
+.button-secondary {
+  background: transparent;
+  color: #14212b;
+  border: 2px solid #14212b;
+}
+.button-secondary:hover { background: #c3dcd3; }
+.join a:focus-visible, input:focus-visible, button:focus-visible {
+  outline: 3px solid #14212b;
+  outline-offset: 4px;
+}
+#message { min-height: 3em; margin-bottom: 0; font-style: italic; overflow-wrap: anywhere; }
+
+/* Третий день: перенос карточек и фильтр */
+.cards { flex-wrap: wrap; }
+.card { flex: 1 1 200px; max-width: 260px; }
+#topics label { display: block; margin-bottom: 8px; font-weight: bold; }
+select {
+  font: inherit;
+  padding: 10px;
+  max-width: 100%;
+  margin-bottom: 16px;
+  color: #14212b;
+  background: #eef3f1;
+  border: 2px solid #f2c14e;
+  border-radius: 8px;
+}
+select:focus-visible { outline: 3px solid #f2c14e; outline-offset: 4px; }
+#topic-count { min-height: 1.5em; }
+@media (max-width: 700px) { .card { flex: auto; max-width: none; } }
